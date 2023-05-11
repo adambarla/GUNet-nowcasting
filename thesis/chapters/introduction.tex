@@ -1,0 +1,30 @@
+\chapter{Introduction}
+\label{chap:introduction}
+
+Weather forecasting has long been a critical aspect of human life, with accurate predictions allowing us to plan and protect ourselves from the potential impact of severe weather events. While long-term weather predictions offer valuable insights into general trends and patterns, they need more precision to address the immediate threats of severe storms and other fast-changing conditions.
+
+Weather nowcasting is the practice of making short-term weather predictions on the scale of minutes to a few hours. It is a vital tool in our efforts to anticipate and respond to these rapidly evolving weather events. It is beneficial for anticipating the evolution of rapidly changing weather phenomena, like storms, thunderstorms, or heavy rainfall, which can significantly impact public safety, infrastructure, and our daily activities.
+
+In recent years, deep learning techniques like \glspl{CNN} have significantly advanced the field of weather nowcasting, especially in predicting storm evolution using radar images. However, despite these advancements, limitations in the quality and accuracy of these predictions persist, which is the focus of my thesis.
+
+The UNet architecture, a popular \gls{CNN} model for image processing tasks, has shown its potential in various applications, including weather nowcasting. Nonetheless, it is known to suffer from structural bias, which can introduce unwanted artifacts and reduce the quality of the predicted storm structures. To enhance the reliability and accuracy of storm structure predictions, I aim to address these issues and develop a more spectrally consistent model.
+
+Inspired by the work of Demetris Marnerides et al. \cite{gunet}, which proposed the \gls{GUNet} architecture for high-fidelity image transformations, this thesis aims to adapt and apply the concept of spectrally consistent models to the problem of weather nowcasting.
+
+The main objective is to investigate and remove the structural biases present in deep learning models, such as UNet, to improve the prediction of storm structures from radar images. By leveraging spectral analysis methods, I aim to identify and mitigate the adverse effects of artifacts on the predictions and examine the improvement in the prediction quality.
+
+Initially, the thesis provides a comprehensive literature review covering weather nowcasting, convolutional neural networks, the UNet architecture, and its improvement using \gls{GU}. Then, the methodology chapter provides an introduction to the dataset of radar images produced by \gls{OPERA}, along with details about the preprocessing and data splitting techniques used on it. The chapter continues with implementation details of the UNet and the \gls{GUNet} architectures and the model training process.
+
+The evaluation and results chapter follows, comparing the standard and improved UNet models using metrics such as \gls{MSE}, \gls{MAE}, and \gls{SSIM} while also analyzing the impact of \gls{GU} on the spectral bias. The discussion delves into the interpretation of results, limitations, potential improvements, and the implications for weather nowcasting. Finally, the thesis concludes by summarizing the findings, highlighting contributions to the field, and outlining possible future research directions.
+
+In summary, my thesis strives to advance the field of weather nowcasting by addressing the structural biases present in deep learning models,
+thereby improving the prediction of storm structures and contributing to the ongoing efforts to develop more accurate and reliable weather forecasts.
+
+\chapter{Thesis's Objective}
+\label{chap:objective}
+
+The primary objective of this thesis is to enhance the accuracy and reliability of short-term weather predictions, notably storm structure predictions from radar images, by addressing the spectral biases present in deep learning models like the UNet architecture. By adapting and applying the \gls{GU} technique from the \gls{GUNet} architecture to weather nowcasting, the thesis aims to develop a more spectrally consistent model, effectively mitigating the adverse effects of artifacts on the predictions and contributing to the ongoing efforts to develop more accurate and reliable weather forecasts.
+
+In the first part of the thesis, I aim to introduce the reader to \glspl{CNN} and their application in weather nowcasting. I will describe the UNet architecture, present the concept of structural bias, and discuss how it may arise and affect the network's performance. Furthermore, I will present the \gls{GU} technique and its use in the \gls{GUNet} architecture. I will also provide an overview of the dataset used for training the \glspl{NN}, characterizing its features and relevance to weather predictions.
+
+The second part of the thesis focuses on creating a more spectrally consistent model for weather predictions using the provided dataset of radar images, which covered the area above the Czech Republic. I intend to design and implement two models, \gls{GUNet} and UNet, in PyTorch and analyze the impact of \gls{GU} on spectral bias by comparing their performance using metrics such as \gls{MSE}, \gls{MAE}, and \gls{SSIM}.

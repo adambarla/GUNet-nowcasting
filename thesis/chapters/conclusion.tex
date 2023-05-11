@@ -1,0 +1,41 @@
+\chapter{Conclusion and Future Work}
+\label{chap:conclusion}
+
+This thesis has sought to enhance the accuracy and reliability of short-term weather predictions, notably storm structure predictions from radar images, by addressing the structural biases present in deep learning models like the UNet architecture. By adapting and applying the Guided Upsampling technique from the Guided UNet (GUNet) architecture to weather nowcasting, I could effectively mitigate the adverse effects of transposed convolution on weather predictions. This approach led to the development of a more spectrally consistent model.
+
+Through a comprehensive literature review, the reader was introduced to the concepts of weather nowcasting, \glspl{CNN}, the UNet architecture, \gls{GIF}, and spectral bias. A dataset of radar composites from a network of weather radars created by \gls{OPERA} was utilized for training and evaluating the \gls{GUNet} and UNet models. The impact of \gls{GU} was analyzed on the \gls{GUNet} and UNet models using metrics such as \gls{MSE}, \gls{MAE}, and \gls{SSIM}.
+
+The results demonstrated that, while the UNet successfully mitigated the structural artifacts, the \gls{GUNet} model outperformed it in terms of average \gls{MAE} and \gls{MSE} on the test dataset. Additionally, the \gls{GUNet} demonstrated an improved ability to capture higher frequencies compared to the UNet, which is a significant finding considering the spectral bias issue in neural networks.
+
+Despite the improvements observed in the \gls{GUNet} model, some limitations and potential improvements were identified, including the removal of nearly empty images from the dataset, addressing padding in convolutions, improving the speed of the \gls{GUNet} using a faster \gls{GIF} algorithm, and conducting a more exhaustive investigation of the models by multiple training runs with more hyperparameters.
+
+The implications for weather nowcasting suggest that the \gls{GUNet} model's improved performance on images with higher radar echo intensities may contribute to better predictions of severe weather events, which are of utmost importance for public safety and infrastructure protection. Although the performance improvement is relatively small, it still signifies progress in the ongoing efforts to create more precise and dependable weather forecasts.
+
+In conclusion, this thesis has successfully, even if marginally, advanced the field of weather nowcasting by addressing structural biases in convolutional neural networks used in this field.
+
+
+\section{Summary of Findings}
+
+The key findings of this thesis are as follows:
+\label{sec:summary_findings}
+
+\begin{itemize}
+    \item The \gls{GUNet} model, which incorporates \gls{GU}, demonstrated improved performance compared to the UNet model in terms of average \gls{MAE} and \gls{MSE} on the test dataset while achieving nearly identical average \gls{SSIM}, which suggests that the \gls{GUNet} model provides a marginal improvement in accurate and reliable short-term weather predictions from radar images.
+    \item The \gls{GUNet} model more successfully captured higher spatial frequencies than the UNet model.
+    \item The \gls{GUNet} model performed better than the UNet model on images with higher radar echo intensities, which is particularly important for predicting severe weather events in the context of weather nowcasting.
+\end{itemize}
+
+\section{Future Research Directions}
+\label{sec:future_research}
+
+Based on the findings and limitations of this thesis, the following future research directions are proposed:
+\begin{itemize}
+    \item More extensive hyperparameter searches, including parameters such as model depth and different kernel sizes in each layer, could lead to a better comparison of both models and improvements in performance.
+
+    \item Utilizing a faster \gls{GIF} algorithm in the GUNet model could reduce training time, allowing for more extensive experimentation and potentially better model performance in the same training time. Removing nearly empty images from the dataset could also lead to similar improvements.
+
+    \item Testing different, more complex loss functions may improve the model's ability to predict storm structures and contribute to more accurate and reliable weather forecasts.
+
+    \item Investigating if using \gls{GIF} in other deep learning models and techniques, such as recurrent \glspl{GAN} or stable diffusion, could improve their performance.
+
+\end{itemize}

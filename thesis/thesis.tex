@@ -1,0 +1,148 @@
+% arara: xelatex
+% arara: xelatex
+% arara: xelatex
+
+
+% options:
+% thesis=B bachelor's thesis
+% thesis=M master's thesis
+% czech thesis in Czech language
+% english thesis in English language
+% hidelinks remove colour boxes around hyperlinks
+
+\documentclass[thesis=B,english, hidelinks]{FITthesis}[2019/12/23]
+
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguages{czech,slovak}
+
+
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{newpxtext,newpxmath}
+% \renewcommand\chaptitlefont{\normalfont\HUGE\bfseries\rmfamily}
+\addtodef\chaptitlefont{}{\rmfamily}
+\addtodef\chapnumfont{}{\rmfamily}
+\addtodef\chapnamefont{}{\rmfamily}
+
+%\usepackage[utf8]{inputenc} % LaTeX source encoded as UTF-8
+% \usepackage[latin2]{inputenc} % LaTeX source encoded as ISO-8859-2
+% \usepackage[cp1250]{inputenc} % LaTeX source encoded as Windows-1250
+
+% \usepackage{subfig} %subfigures
+% \usepackage{amsmath} %advanced maths
+% \usepackage{amssymb} %additional math symbols
+
+\usepackage{dirtree} %directory tree visualisation
+\usepackage{pdfpages}
+
+% % list of acronyms
+% \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
+% \iflanguage{czech}{\renewcommand*{\acronymname}{Seznam pou{\v z}it{\' y}ch zkratek}}{}
+% \makeglossaries
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% EDIT THIS
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\department{Department of Applied Mathematics}
+\title{Improving prediction of storm structure by spectral methods}
+\authorGN{Adam} %author's given name/names
+\authorFN{Barla} %author's surname
+\author{Adam Barla} %author's name without academic degrees
+\authorWithDegrees{Adam Barla} %author's name with academic degrees
+\supervisor{Mgr. Petr Šimánek}
+\acknowledgements{
+I thank Mgr. Petr Šimánek for guiding me, offering insightful suggestions, and providing consultation during this project. Additionally, I extend my appreciation to all those who devoted their time to proofreading my thesis, including my supportive parents and my friend Aleš Sršen.
+}
+\input{chapters/abstract}
+
+\placeForDeclarationOfAuthenticity{Prague}
+\declarationOfAuthenticityOption{1} %select as appropriate, according to the desired license (integer 1-6)
+\website{https://github.com/barlaada/GUNet-nowcasting} %optional thesis URL
+
+\usepackage[htt]{hyphenat}
+
+
+
+\usepackage{float}
+
+\usepackage{graphicx}
+\setcounter{MaxMatrixCols}{16}
+\usepackage{tikz}
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{arrows.meta, calc,shapes,shapes.geometric, arrows, positioning}
+
+\usepackage{subcaption}
+\usepackage{algpseudocode}
+\usepackage[hang]{footmisc}
+\setlength\footnotemargin{10pt}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+
+
+\definecolor{blue}{RGB}{38,139,210}
+\definecolor{cyan}{RGB}{42,161,152}
+\definecolor{violet}{RGB}{108,113,196}
+\definecolor{red}{RGB}{220,50,47}
+
+\definecolor{hunyadiyellow}{RGB}{237, 174, 73}
+\definecolor{amaranth}{RGB}{209, 73, 91}
+\definecolor{carbbeancurrent}{RGB}{0, 121, 140}
+\definecolor{lapislazuli}{RGB}{48, 99, 142}
+\definecolor{indigodye}{RGB}{0, 61, 91}
+
+\definecolor{base01}{RGB}{88,110,117}
+\definecolor{base02}{RGB}{7,54,66}
+\definecolor{base03}{RGB}{0,43,54}
+
+
+\newacronym{WMO}{WMO}{World Meteorological Organization}
+\newacronym{MAE}{MAE}{Mean Absolute Error}
+\newacronym{MSE}{MSE}{Mean Squared Error}
+\newacronym{SSIM}{SSIM}{Structural Similarity Index Measure}
+\newacronym{NN}{NN}{Neural Network}
+\newacronym{CNN}{CNN}{Convolutional Neural Network}
+\newacronym{GAN}{GAN}{Generative Adversarial Network}
+\newacronym{GIF}{GIF}{Guided Image Filter}
+\newacronym{FGF}{FGF}{Fast Guided Filter}
+\newacronym{JBU}{JBU}{Joint Bilateral Upsampling}
+\newacronym{GU}{GU}{Guided Upsampling}
+\newglossaryentry{OPERA}
+{
+name=OPERA,
+description={The European Operational Program for Exchange of Weather Radar Information}
+}
+\newacronym{TPE}{TPE}{Tree-structured Parzen Estimator}
+\newacronym{GUNet}{GUNet}{Guided UNet}
+
+
+\begin{document}
+% \newacronym{CVUT}{{\v C}VUT}{{\v C}esk{\' e} vysok{\' e} u{\v c}en{\' i} technick{\' e} v Praze}
+% \newacronym{FIT}{FIT}{Fakulta informa{\v c}n{\' i}ch technologi{\' i}}
+
+
+\setsecnumdepth{part}
+\include{chapters/introduction}
+
+\setsecnumdepth{all}
+
+\include{chapters/literature_review}
+\include{chapters/methodology}
+\include{chapters/evaluation_results}
+\include{chapters/discussion}
+
+\setsecnumdepth{part}
+\include{chapters/conclusion}
+
+
+
+
+\bibliographystyle{iso690}
+\bibliography{bibliography}
+
+\setsecnumdepth{all}
+\include{chapters/appendices}
+
+\end{document}

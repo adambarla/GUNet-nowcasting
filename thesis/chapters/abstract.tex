@@ -1,0 +1,27 @@
+\abstractEN{
+
+Short-term weather forecasting (nowcasting) is crucial in predicting extreme weather events. This thesis focuses on structural biases that can be introduced into convolutional neural network predictions.
+
+I investigated whether guided upsampling, used instead of transposed convolution, can improve the accuracy and reliability of weather forecasts. To this end, I trained UNet and Guided UNet (GUNet) models on radar images from a network of meteorological radars created by the OPERA radar program. I analyzed both models using performance indicators such as mean squared error (MSE), mean absolute error (MAE), and the structural similarity index (SSIM).
+
+The results showed that the GUNet model slightly outperformed the UNet model regarding average MAE and MSE and demonstrated a better ability to capture higher frequencies in the Fourier spectrum of radar images. Moreover, the GUNet model achieved marginally better results on images with higher radar echo intensity, essential for predicting severe weather events.
+
+The study suggests that the GUNet model can improve short-term weather predictions, and the results provide a basis for further research in this area.
+
+}
+
+\keywordsEN{weather nowcasting, convolutional neural networks, transponed convolution, UNet, guided UNet, guided filter, guided upsampling}
+
+
+\abstractCS{
+
+Krátkodobá predpoveď počasia (nowcasting) zohráva kľúčovú úlohu pri predvídaní extrémnych výkyvov počasia. V tejto práci sa zaoberám chybami, ktoré môžu byť vnesené do predikcí konvolučných neurónových sietí.
+
+V mojom výskume som skúmal, či aplikácia usmerneného prevzorkovania (Guided Upsampling) namiesto transponovanej konvolúcie môže zlepšiť presnosť a spoľahlivosť predpovedí počasia. Na tento účel som vytrénoval modely UNet a GUNet (Guided UNet) na radarových snímkoch zo siete meteorologických radarov vytvorených radarovým programom OPERA. Na analýzu oboch modelov som použili ukazovatele výkonnosti, ako sú stredná kvadratická chyba (MSE), stredná absolútna chyba (MAE) a index štrukturálnej podobnosti (SSIM).
+
+Výsledky ukázali, že model GUNet mierne prekonal UNet z hľadiska priemernej strednej absolútnej chyby a strednej kvadratickej chyby. Navyše preukázal lepšiu schopnosť zachytiť vyššie frekvencie vo Fourierovom spektre radarových snímkov. Okrem toho GUNet dosahoval sčasti lepšie výsledky na snímkach s vyššou intenzitou radarového echa, čo je významné pre predpovedanie závažných poveternostných udalostí.
+
+Na základe týchto výsledkov možno konštatovať, že model GUNet má potenciál na zlepšenie krátkodobých predpovedí počasia. Výsledky mojej práce poskytujú priestor pre ďalší výskum v tejto oblasti.
+}
+
+\keywordsCS{krátkodobá predpoveď počasia, konvolučné neurónové siete, transponovaná konvolúcia, UNet, Guided UNet, guided filter, guided upsampling}

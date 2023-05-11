@@ -1,0 +1,31 @@
+\chapter{Discussion}
+\label{chap:discussion}
+
+
+\section{Interpretation of Results}
+\label{sec:interpretation}
+
+From the average Fourier spectrum of the UNet $\bar{M}_{\texttt{UNet}}$ in figure \ref{fig:fourier} is clear that the network did not produce the structural artifacts\footnote{See the section \ref{subsec:structural_bias}.} because it produced $\bar{M}_{\texttt{UNet}}$ without the checkerboard-like structure which was present in results of a similar experiment in the paper \cite[fig. 3]{gunet}. The UNet in the paper\footnote{The paper \cite{gunet} presents various UNet architectures. Specifically, I am talking about the one called Transposed Convolution UNet or``TC-UNet," as named in the paper.} utilized a 4x4 kernel in their transposed convolution, while my UNet used a 2x2 kernel\footnote{Size of the kernel was found in hyperparameter search. See section \ref{subsec:hyperparameters}.}.
+
+The smaller kernel may have helped to mitigate the artifacts since with 2×2 kernel with a 2×2 stride means that each pixel in the output of the transposed convolution is a function of just one input pixel. Whereas with a 4×4 kernel and the same stride, each output pixel is affected by four input pixels. In contrast, the \gls{GIF} in \gls{GUNet} was used with $\texttt{radius} = 2$, which means that output pixels are assumed to be a linear transformation of the input image with coefficients computed on a window $\omega_k$, so in the case of $\texttt{radius} = 2$, the size of this window is $\left|\omega_k\right| = \left(2r + 1\right)^2 = 25$.
+
+UNet may have learned to mitigate these artifacts, or they were not created due to the tiny kernel. Either way, it may have been at the expense of worse performance than the \gls{GUNet} when I compare the average \gls{MAE} and \gls{MSE} on the test dataset. While the UNet was better in both metrics on the validation dataset, on the test dataset, \gls{GUNet} outperformed the UNet. The \gls{SSIM} is also interesting to compare. UNet scored better, but the margin has shrunk ten times from 0.002 to 0.0002. Intriguingly, the \gls{SSIM} values improved on the testing dataset. The reason behind it could be the randomness in creating the datasets. Both networks were tested and trained on the same datasets so they could be compared on them. The \gls{SSIM} on the validation dataset has practically only risen during training, so it is unlikely that overfitting of the UNet is the reason for its declined performance. However, it has more parameters than the GUNet, which would make it more likely to do so.
+
+Another critical difference between the models, which can be seen in the results, is the ability of the \gls{GUNet} to capture higher frequencies than the UNet. By itself, capturing higher frequencies does not imply better weather predictions, but the improvement is significant because of the spectral bias present in \glspl{NN}\footnote{I. e. tendency of neural networks to learn lower frequencies more easily. See the section \ref{subsec:spectral_bias}.} .
+
+Weather nowcasting aims to anticipate severe weather conditions and safeguard us from dangers caused by rapidly changing weather patterns. In this regard, predicting high-intensity levels in radar images is more advantageous. Figures \ref{fig:threshold_ssim}, \ref{fig:threshold_mae}, and \ref{fig:threshold_mse} indicate that the performance of the \gls{GUNet} was superior to that of the UNet in images where lower intensities were removed. Although the improvement was relatively small, as shown in the figures.
+
+Granting all these differences, when the weather predictions of both networks are compared to the target predictions, they look nearly identical.
+
+\section{Limitations and Potential Improvements}
+\label{sec:limitations_improvements}
+
+My approach has some limitations, some of which I already mentioned earlier. Firstly, I did not remove nearly empty images from the dataset, which may have impacted the training time and the performance of the models.
+
+The second limitation I already mentioned is padding in the convolutions. If I instead allowed the convolution outputs to decrease each time, the network's final output would be much smaller than the input, but it would lead to better performance around the edges of the image.
+
+Next, I would improve the speed of the GUNet. In the implementation of \gls{GUNet}, I used the standard \gls{GIF} algorithm \ref{ax:gif}, but there is a faster algorithm \ref{ax:gif_fast}, which may improve the long training time observed in the figure \ref{fig:val_ssim_duration}.
+
+Finally, while the differences in the performance of the models are there, it is paramount to mention that they were observed on just one pair of networks and trained only once, which means that the results are not statistically significant and to obtain more definite outcomes, additional, comprehensive research is necessary. This research could involve exploring additional hyperparameters, like varying kernel sizes in each layer and parameterizing the model depth. The search for hyperparameters could also be longer, letting the networks run for more epochs. Final training could be done for more epochs and multiple times. Different, more complex loss functions could also be tried.
+
+
