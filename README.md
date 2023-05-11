@@ -11,13 +11,20 @@ __Keywords:__ weather nowcasting, convolutional neural networks, transponed conv
 
 ## Contents
 ```
-├─ src/
-│  ├─ favicon.ico
-│  ├─ index.html
-│  ├─ robots.txt
-├─ thesis/
-│  ├─ index.css
-│  ├─ index.js
-├─ .gitignore
-├─ README.md
+├─ src/...................................directory containing the implementation
+│  ├─ dataset.py...............................script for generating the datasets
+│  ├─ tuning.py..................................script for hyperparameter tuning
+│  ├─ train.py............................................model trainining script
+│  ├─ gunet.py.................................implementation of GUNet in PyTorch
+│  ├─ unet.py...................................implementation of UNet in PyTorch
+│  ├─ gunet_weights_best.pt..............................eights of the best GUNet
+│  ├─ unet_weights_best..................................weights of the best UNet
+│  ├─ visualization.ipynb...........notebook used for creating the visualizations
+├─ thesis/..........................................directory containing the text
+│  ├─ chapters directory..........................containing text of the chapters
+│  ├─ images directory.......................containing images used in the thesis
+│  ├─ thesis.tex...........................................main LaTeX source file
+│  ├─ bibliography.bib...............................................bibliography
+│  ├─ thesis.pdf.........................................................this pdf
+├─ README.md........................information about the contents of the archive
 ```
