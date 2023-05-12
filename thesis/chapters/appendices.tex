@@ -192,14 +192,21 @@ The dot before the operation denotes that it is performed elementwise. $f_\textt
 
 \begin{figure}[h]
     \dirtree{%
-    .1 docs\DTcomment{the file with CD contents description}.
-    .2 wbdcm\DTcomment{implementation sources}.
-    .2 chapters\DTcomment{directory containing \LaTeX source code of the chapters}.
-    .2 thesis.tex\DTcomment{main \LaTeX source file}
-    .2 thesis.pdf\DTcoment{this pdf}
-    .1 src\DTcomment{directory containing souce code of the models and }.
-    .2 src\DTcomment{directory containing souce code of the models and }.
-    .2 src\DTcomment{directory containing souce code of the models and }.
-    .1 README.md\DTcomment{file containing information about contents of the archive}.
+    .1 README.md\DTcomment{information about the contents of the archive}.
+    .1 src\DTcomment{directory containing the implementation}.
+    .2 dataset.py\DTcomment{script for generating the datasets}.
+    .2 tuning.py\DTcomment{script for hyperparameter tuning}.
+    .2 train.py\DTcomment{model trainining script}.
+    .2 gunet.py\DTcomment{implementation of GUNet in PyTorch}.
+    .2 unet.py\DTcomment{implementation of UNet in PyTorch}.
+    .2 gunet\_weights\_best.pt\DTcomment{weights of the best GUNet}.
+    .2 unet\_weights\_best.pt\DTcomment{weights of the best UNet}.
+    .2 visualization.ipynb\DTcomment{notebook used for creating the visualizations}.
+    .1 thesis\DTcomment{directory containing the text}.
+    .2 chapters\DTcomment{directory containing text of the chapters}.
+    .2 images\DTcomment{directory containing images used in the thesis}.
+    .2 thesis.tex\DTcomment{main \LaTeX{} source file}.
+    .2 bibliography.bib\DTcomment{bibliography}.
+    .2 thesis.pdf\DTcomment{this pdf}.
     }
 \end{figure}
