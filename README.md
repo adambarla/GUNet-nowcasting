@@ -25,6 +25,6 @@ __Keywords:__ weather nowcasting, convolutional neural networks, transponed conv
 │  ├─ images directory.......................containing images used in the thesis
 │  ├─ thesis.tex...........................................main LaTeX source file
 │  ├─ bibliography.bib...............................................bibliography
-│  ├─ thesis.pdf.........................................................this pdf
+│  ├─ thesis.pdf........................................text of the thesis in pdf
 ├─ README.md........................information about the contents of the archive
 ```
