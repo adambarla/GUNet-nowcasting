@@ -7,7 +7,7 @@ I investigated whether guided upsampling, used instead of transposed convolution
 The results showed that the GUNet model slightly outperformed the UNet model regarding average MAE and MSE and demonstrated a better ability to capture higher frequencies in the Fourier spectrum of radar images. More- over, the GUNet model achieved marginally better results on images with higher radar echo intensity, essential for predicting severe weather events.
 The study suggests that the GUNet model can improve short-term weather predictions, and the results provide a basis for further research in this area.
 
-__Keywords:__ weather nowcasting, convolutional neural networks, transponed convolution, UNet, guided UNet, guided filter, guided upsampling
+__Keywords:__ weather nowcasting, convolutional neural networks, transposed convolution, UNet, guided UNet, guided filter, guided upsampling
 
 ## Contents
 ```
